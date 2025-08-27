@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saúl Díaz - Restauración de Fotografías Antguas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos para una tipografía más moderna y legible */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700; /* Usar un peso más audaz para los encabezados */
+        }
+        
+        /* --- Comparador de Imágenes Corregido --- */
+        .image-comparer {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            cursor: ew-resize;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        /* La imagen base (restaurada) define el tamaño del contenedor */
+        .image-comparer > .restored-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Clave: ajusta sin cortar */
+            pointer-events: none;
+        }
+        /* La capa superior (original) se superpone perfectamente */
+        .image-comparer .before-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+            pointer-events: none;
+        }
+        .image-comparer .before-layer > img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Clave: ajusta sin cortar */
+        }
+        /* La línea divisoria */
+        .image-comparer .divider {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 3px;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            transform: translateX(-50%);
+            pointer-events: none;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        /* El botón de control */
+        .image-comparer .slider-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 44px;
+            height: 44px;
+            background-color: white;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Sección Principal (Hero) -->
+    <header class="bg-white">
+        <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Devolvemos la vida a tus recuerdos.</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8">Especialistas en la restauración digital de fotografías antiguas y dañadas. Rescatamos cada detalle para que tus momentos más preciados perduren para siempre.</p>
+            <a href="#contacto" class="bg-amber-600 text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-amber-700 transition duration-300">Restaura tu foto ahora</a>
+        </div>
+        
+        <!-- Comparador de Imágenes Principal -->
+        <div class="w-full mx-auto px-4 pb-16" style="max-width: 700px;">
+             <div class="image-comparer" style="height: 450px;">
+                <!-- Imagen base (restaurada) -->
+                <img class="restored-image" src="https://res.cloudinary.com/drrhn6t1c/image/upload/v1756324456/img-res1_tszrex.jpg" alt="Después">
+                <!-- Capa "Antes" superpuesta -->
+                <div class="before-layer">
+                    <img src="https://res.cloudinary.com/drrhn6t1c/image/upload/v1756324295/img2_qgnxvr.jpg" alt="Antes">
+                </div>
+                <div class="divider"></div>
+                <div class="slider-handle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="8 12 4 16 8 18"></polyline><polyline points="16 12 20 16 16 18"></polyline><polyline points="8 6 4 10 8 12"></polyline><polyline points="16 6 20 10 16 12"></polyline></svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Proceso -->
+    <section id="proceso" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-2">Un proceso sencillo y seguro</h2>
+                <p class="text-gray-600">Paga solo cuando estés 100% satisfecho con el resultado.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <!-- Paso 1 -->
+                <div class="flex flex-col items-center">
+                    <div class="bg-amber-100 text-amber-700 w-20 h-20 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">1. Envía tu Foto</h3>
+                    <p class="text-gray-600">Mándanos tu foto por WhatsApp. Para mejores resultados, <strong class="font-semibold">escanéala en alta calidad.</strong> Si no es posible, tómale una foto con tu celular en un lugar con <strong class="font-semibold">muy buena luz natural y sin reflejos.</strong></p>
+                </div>
+                <!-- Paso 2 -->
+                <div class="flex flex-col items-center">
+                    <div class="bg-amber-100 text-amber-700 w-20 h-20 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">2. Recibe una Muestra</h3>
+                    <p class="text-gray-600">Restauraremos tu foto y te enviaremos una vista previa. Así podrás revisar la calidad de nuestro trabajo sin ningún compromiso.</p>
+                </div>
+                <!-- Paso 3 -->
+                <div class="flex flex-col items-center">
+                    <div class="bg-amber-100 text-amber-700 w-20 h-20 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">3. Paga y Descarga</h3>
+                    <p class="text-gray-600">¿Te encantó el resultado? Te enviaremos un enlace de pago seguro. Una vez completado, recibirás tu foto final en alta resolución y sin marca de agua.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Portafolio -->
+    <section id="portafolio" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-2">Nuestro Trabajo</h2>
+            <p class="text-gray-600 mb-12">Transformamos el pasado en presente. Desliza para ver la magia.</p>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <!-- Ejemplo 1 -->
+                <div class="w-full mx-auto" style="max-width: 500px; height: 450px;">
+                    <div class="image-comparer h-full">
+                        <img class="restored-image" src="https://res.cloudinary.com/drrhn6t1c/image/upload/v1756324295/img-res2_hyvzbm.jpg" alt="Después">
+                        <div class="before-layer">
+                            <img src="https://res.cloudinary.com/drrhn6t1c/image/upload/v1756324295/img1_pd6nxn.jpg" alt="Antes">
+                        </div>
+                        <div class="divider"></div>
+                        <div class="slider-handle">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="8 12 4 16 8 18"></polyline><polyline points="16 12 20 16 16 18"></polyline><polyline points="8 6 4 10 8 12"></polyline><polyline points="16 6 20 10 16 12"></polyline></svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- Ejemplo 2 -->
+                 <div class="w-full mx-auto" style="max-width: 500px; height: 450px;">
+                    <div class="image-comparer h-full">
+                        <img class="restored-image" src="https://res.cloudinary.com/drrhn6t1c/image/upload/v1756324295/img-res3_lail8i.jpg" alt="Después">
+                        <div class="before-layer">
+                            <img src="https://res.cloudinary.com/drrhn6t1c/image/upload/v1756324295/img3_vpanrh.jpg" alt="Antes">
+                        </div>
+                        <div class="divider"></div>
+                        <div class="slider-handle">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="8 12 4 16 8 18"></polyline><polyline points="16 12 20 16 16 18"></polyline><polyline points="8 6 4 10 8 12"></polyline><polyline points="16 6 20 10 16 12"></polyline></svg>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Ejemplo 3 -->
+                <div class="md:col-span-2 w-full mx-auto" style="max-width: 700px; height: 450px;">
+                     <div class="image-comparer h-full">
+                        <img class="restored-image" src="https://res.cloudinary.com/drrhn6t1c/image/upload/v1756324456/img-res1_tszrex.jpg" alt="Después">
+                        <div class="before-layer">
+                            <img src="https://res.cloudinary.com/drrhn6t1c/image/upload/v1756324295/img2_qgnxvr.jpg" alt="Antes">
+                        </div>
+                        <div class="divider"></div>
+                        <div class="slider-handle">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="8 12 4 16 8 18"></polyline><polyline points="16 12 20 16 16 18"></polyline><polyline points="8 6 4 10 8 12"></polyline><polyline points="16 6 20 10 16 12"></polyline></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Precio Rediseñada -->
+    <section id="precio" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden md:flex">
+                <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Un precio para cada recuerdo.</h2>
+                    <p class="text-gray-600">Cada fotografía es un tesoro. Por eso ofrecemos un precio único y transparente para una restauración digital completa.</p>
+                     <ul class="space-y-2 text-gray-600 mt-4">
+                        <li class="flex items-start"><span class="text-amber-600 mr-2">&#10003;</span> Reparación de daños y rasgaduras.</li>
+                        <li class="flex items-start"><span class="text-amber-600 mr-2">&#10003;</span> Entrega digital en alta resolución.</li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2 bg-amber-600 text-white p-8 md:p-12 flex flex-col justify-center items-center text-center">
+                    <p class="text-lg opacity-80">Precio por foto</p>
+                    <div class="flex items-baseline justify-center my-2">
+                        <p class="text-6xl font-extrabold">$600</p>
+                        <p class="font-semibold ml-2">MXN</p>
+                    </div>
+                    <a href="#contacto" class="mt-6 bg-white text-amber-700 px-8 py-3 rounded-md font-bold hover:bg-amber-50 transition duration-300">Empezar restauración</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto por WhatsApp -->
+    <section id="contacto" class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-2">¿Listo para empezar?</h2>
+            <p class="text-gray-600 mb-8">Haz clic en el botón para enviarnos tu foto directamente por WhatsApp. ¡Estamos listos para darle una nueva vida a tus recuerdos!</p>
+            <a href="https://api.whatsapp.com/send?phone=+526644268964&text=%C2%A1Hola!%20Me%20gustar%C3%ADa%20solicitar%20el%20servicio%20de%20restauraci%C3%B3n%20de%20fotos." target="_blank" class="inline-flex items-center justify-center bg-green-500 text-white px-8 py-4 rounded-lg text-xl font-bold hover:bg-green-600 transition duration-300 shadow-lg">
+                <img src="https://res.cloudinary.com/drrhn6t1c/image/upload/v1755994836/410199-PD37U2-851_povmt3.png" alt="WhatsApp Icon" class="h-7 w-7 mr-3">
+                Enviar foto por WhatsApp
+            </a>
+            <p class="text-sm text-gray-500 mt-4">Serás redirigido a la aplicación de WhatsApp.</p>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('.image-comparer').forEach(comparer => {
+            let isDragging = false;
+            const beforeLayer = comparer.querySelector('.before-layer');
+            const divider = comparer.querySelector('.divider');
+            const handle = comparer.querySelector('.slider-handle');
+
+            const moveSlider = (clientX) => {
+                const rect = comparer.getBoundingClientRect();
+                let x = clientX - rect.left;
+
+                // Limitar el movimiento dentro del contenedor
+                if (x < 0) x = 0;
+                if (x > rect.width) x = rect.width;
+
+                const percentage = (x / rect.width) * 100;
+                
+                beforeLayer.style.clipPath = `polygon(0 0, ${percentage}% 0, ${percentage}% 100%, 0 100%)`;
+                divider.style.left = `${percentage}%`;
+                handle.style.left = `${percentage}%`;
+            };
+
+            // Mouse events
+            comparer.addEventListener('mousedown', (e) => {
+                isDragging = true;
+            });
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    moveSlider(e.clientX);
+                }
+            });
+
+            // Touch events
+            comparer.addEventListener('touchstart', (e) => {
+                isDragging = true;
+            }, { passive: true });
+            document.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+            document.addEventListener('touchmove', (e) => {
+                if (isDragging && e.touches[0]) {
+                    moveSlider(e.touches[0].clientX);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
