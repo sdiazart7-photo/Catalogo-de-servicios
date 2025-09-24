@@ -79,6 +79,13 @@
                     <p class="text-gray-600 flex-grow font-normal">Sesiones por hora para gran volumen.</p>
                 </section>
             </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-12 text-gray-500">
+            <p>&nbsp;</p>
+        </footer>
+    </div>
 
     <!-- Service Modal -->
     <div id="modal" class="modal fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden opacity-0">
@@ -181,33 +188,14 @@
         </div>
     </div>
 
-    <!-- Portfolio Modal -->
-    <div id="portfolio-modal" class="portfolio-modal fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 hidden opacity-0">
-        <button id="portfolio-close" class="absolute top-4 right-6 text-white text-5xl font-bold hover:text-gray-300">&times;</button>
-        <button id="portfolio-prev" class="absolute left-4 md:left-10 text-white text-4xl font-bold hover:text-gray-300 bg-black bg-opacity-30 p-2 rounded-full">❮</button>
-        <button id="portfolio-next" class="absolute right-4 md:right-10 text-white text-4xl font-bold hover:text-gray-300 bg-black bg-opacity-30 p-2 rounded-full">❯</button>
-        <div class="max-w-4xl max-h-[80vh] w-full">
-             <div id="portfolio-image-placeholder" class="w-full h-[80vh]">
-                <!-- Image will be inserted here by JS -->
-             </div>
-        </div>
-    </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- Elementos del DOM ---
             const cardSesion = document.getElementById('card-sesion');
             const cardPlan = document.getElementById('card-plan');
             const cardJornada = document.getElementById('card-jornada');
-            const cardPromo = document.getElementById('card-promo');
             const modal = document.getElementById('modal');
             const modalClose = document.getElementById('modal-close');
-            const portfolioLink = document.getElementById('portfolio-link');
-            const portfolioModal = document.getElementById('portfolio-modal');
-            const portfolioClose = document.getElementById('portfolio-close');
-            const portfolioPrev = document.getElementById('portfolio-prev');
-            const portfolioNext = document.getElementById('portfolio-next');
-            const portfolioImagePlaceholder = document.getElementById('portfolio-image-placeholder');
             
             // --- Elementos del Modal de Servicio ---
             const modalTitle = document.getElementById('modal-title');
@@ -275,52 +263,6 @@
                     priceFn: calcularPrecioJornada
                 }
             };
-
-            // --- Lógica del Portafolio ---
-            const portfolioImages = [
-                'https://res.cloudinary.com/drrhn6t1c/image/upload/w_1200,q_auto,f_auto/v1756166491/sart-insta-10_yps1xe.jpg',
-                'https://res.cloudinary.com/drrhn6t1c/image/upload/w_1200,q_auto,f_auto/v1756166490/sart-insta-2_lxmiuh.jpg',
-                'https://res.cloudinary.com/drrhn6t1c/image/upload/w_1200,q_auto,f_auto/v1756166489/sart-insta-16_xlybbu.jpg',
-                'https://res.cloudinary.com/drrhn6t1c/image/upload/w_1200,q_auto,f_auto/v1756166487/sart-insta-6_oritxh.jpg',
-                'https://res.cloudinary.com/drrhn6t1c/image/upload/w_1200,q_auto,f_auto/v1756166487/sart-insta-9_y7itsz.jpg',
-                'https://res.cloudinary.com/drrhn6t1c/image/upload/w_1200,q_auto,f_auto/v1756166606/sart-11_jittpk.jpg',
-                'https://res.cloudinary.com/drrhn6t1c/image/upload/w_1200,q_auto,f_auto/v1756166605/sart-5_thvlsk.jpg',
-                'https://res.cloudinary.com/drrhn6t1c/image/upload/w_1200,q_auto,f_auto/v1756166605/sart-20_fxri9z.jpg',
-                'https://res.cloudinary.com/drrhn6t1c/image/upload/w_1200,q_auto,f_auto/v1756166737/sart-insta-4_rnkizm.jpg',
-                'https://res.cloudinary.com/drrhn6t1c/image/upload/w_1200,q_auto,f_auto/v1756166748/sart-insta-8_r4pd5r.jpg',
-                'https://res.cloudinary.com/drrhn6t1c/image/upload/w_1200,q_auto,f_auto/v1756166766/sart-insta-14_ee1zgc.jpg',
-                'https://res.cloudinary.com/drrhn6t1c/image/upload/w_1200,q_auto,f_auto/v1756166766/sart-insta-18_gd89mb.jpg',
-                'https://res.cloudinary.com/drrhn6t1c/image/upload/w_1200,q_auto,f_auto/v1756166766/sart-insta-12_ueme8f.jpg'
-            ];
-            let currentImageIndex = 0;
-
-            function showPortfolioImage(index) {
-                portfolioImagePlaceholder.innerHTML = `<img src="${portfolioImages[index]}" class="object-contain w-full h-full" alt="Foto del portafolio ${index + 1}">`;
-            }
-
-            portfolioLink.addEventListener('click', (e) => {
-                e.preventDefault();
-                currentImageIndex = 0;
-                showPortfolioImage(currentImageIndex);
-                portfolioModal.classList.remove('hidden');
-                setTimeout(() => portfolioModal.classList.remove('opacity-0'), 10);
-            });
-
-            portfolioClose.addEventListener('click', () => {
-                portfolioModal.classList.add('opacity-0');
-                setTimeout(() => portfolioModal.classList.add('hidden'), 250);
-            });
-
-            portfolioNext.addEventListener('click', () => {
-                currentImageIndex = (currentImageIndex + 1) % portfolioImages.length;
-                showPortfolioImage(currentImageIndex);
-            });
-
-            portfolioPrev.addEventListener('click', () => {
-                currentImageIndex = (currentImageIndex - 1 + portfolioImages.length) % portfolioImages.length;
-                showPortfolioImage(currentImageIndex);
-            });
-
 
             // --- Lógica del Modal de Servicios ---
             let currentServiceConfig = null;
@@ -463,19 +405,12 @@
                 const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
                 window.open(whatsappUrl, '_blank');
             });
-
-            cardPromo.addEventListener('click', () => {
-                let message = "Hola, me gustaría solicitar la promoción de Sesión Express de 20 fotos por $1,300. ¡Gracias!";
-                const phoneNumber = "526644268964";
-                const encodedMessage = encodeURIComponent(message);
-                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-                window.open(whatsappUrl, '_blank');
-            });
         });
     </script>
 
 </body>
 </html>
+
 
 
 
