@@ -56,8 +56,8 @@
             <p class="text-lg text-gray-600 mt-2">Selecciona el tipo de servicio que necesitas</p>
         </header>
 
-        <main class="max-w-4xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <main>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
                 <!-- Card: Sesión de Fotos -->
                 <section id="card-sesion" data-service="sesion" class="bg-white rounded-xl shadow-lg px-10 py-12 cursor-pointer transform hover:scale-105 transition-transform duration-300 flex flex-col items-center text-center">
                     <span class="text-5xl mb-4">📸</span>
@@ -70,13 +70,6 @@
                     <span class="text-5xl mb-4">📅</span>
                     <h2 class="text-xl font-bold text-gray-800 mb-2">Plan Mensual</h2>
                     <p class="text-gray-600 flex-grow font-normal">Servicio continuo con entregas mensuales.</p>
-                </section>
-                
-                <!-- Card: Jornada de Trabajo -->
-                <section id="card-jornada" data-service="jornada" class="bg-white rounded-xl shadow-lg px-10 py-12 cursor-pointer transform hover:scale-105 transition-transform duration-300 flex flex-col items-center text-center">
-                    <span class="text-5xl mb-4">💼</span>
-                    <h2 class="text-xl font-bold text-gray-800 mb-2">Jornada de Trabajo</h2>
-                    <p class="text-gray-600 flex-grow font-normal">Sesiones por hora para gran volumen.</p>
                 </section>
             </div>
         </main>
@@ -141,44 +134,6 @@
                         <span>Edición profesional</span>
                     </div>
                 </div>
-                
-                <div id="features-plan" class="space-y-3 text-gray-700 hidden">
-                    <div class="flex items-center">
-                        <svg class="w-5 h-5 text-gray-800 mr-3 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
-                        <span>1 visita de 2 horas al mes</span>
-                    </div>
-                    <div class="flex items-center">
-                        <svg class="w-5 h-5 text-gray-800 mr-3 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
-                        <span id="plan-feature-fotos"></span>
-                    </div>
-                    <div class="flex items-center">
-                        <svg class="w-5 h-5 text-gray-800 mr-3 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
-                        <span>Entrega en 72 horas</span>
-                    </div>
-                     <div class="flex items-center">
-                        <svg class="w-5 h-5 text-gray-800 mr-3 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
-                        <span>Edición profesional</span>
-                    </div>
-                </div>
-
-                <div id="features-jornada" class="space-y-3 text-gray-700 hidden">
-                    <div class="flex items-center">
-                        <svg class="w-5 h-5 text-gray-800 mr-3 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
-                        <span id="jornada-feature-horas"></span>
-                    </div>
-                    <div class="flex items-center">
-                        <svg class="w-5 h-5 text-gray-800 mr-3 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
-                        <span id="jornada-feature-fotos-editadas"></span>
-                    </div>
-                     <div class="flex items-center">
-                        <svg class="w-5 h-5 text-gray-800 mr-3 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
-                        <span>Edición básica</span>
-                    </div>
-                    <div class="flex items-center">
-                        <svg class="w-5 h-5 text-gray-800 mr-3 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
-                        <span>Entrega en 15 días</span>
-                    </div>
-                </div>
             </div>
 
             <button id="modal-button" class="mt-8 w-full flex items-center justify-center bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition-colors duration-300 shadow-md">
@@ -193,7 +148,6 @@
             // --- Elementos del DOM ---
             const cardSesion = document.getElementById('card-sesion');
             const cardPlan = document.getElementById('card-plan');
-            const cardJornada = document.getElementById('card-jornada');
             const modal = document.getElementById('modal');
             const modalClose = document.getElementById('modal-close');
             
@@ -232,11 +186,6 @@
                 return precioMensual;
             };
 
-            const calcularPrecioJornada = (horas) => {
-                const costoPorHora = 900;
-                return horas * costoPorHora;
-            };
-            
             const formatCurrency = (numero) => new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', minimumFractionDigits: 0 }).format(numero);
 
             // --- Configuración de Servicios ---
@@ -254,13 +203,6 @@
                     unit: 'fotos/mes',
                     slider: { min: 12, max: 30, value: 12, step: 1 },
                     priceFn: calcularPrecioPlan
-                },
-                jornada: {
-                    title: 'Jornada de Trabajo',
-                    sliderLabel: 'Horas de Cobertura:',
-                    unit: 'horas',
-                    slider: { min: 1, max: 6, value: 1, step: 1 },
-                    priceFn: calcularPrecioJornada
                 }
             };
 
@@ -304,13 +246,6 @@
                     modalDurationName.style.display = 'block';
                     modalPrecio.textContent = `${formatCurrency(precioMensual)} MXN /mes`;
                     featuresContainer.querySelector('#plan-feature-fotos').textContent = `${cantidad} fotos por mes`;
-
-                } else if (serviceType === 'jornada') {
-                    const precio = currentServiceConfig.priceFn(cantidad);
-                    modalPrecio.textContent = `${formatCurrency(precio)} MXN`;
-                    modalPagoTipo.textContent = 'Pago único';
-                    featuresContainer.querySelector('#jornada-feature-horas').textContent = `${cantidad} ${cantidad > 1 ? 'horas' : 'hora'} de trabajo continuo`;
-                    featuresContainer.querySelector('#jornada-feature-fotos-editadas').textContent = `15 fotos por hora: ${cantidad * 15} en total`;
                 }
             };
 
@@ -336,8 +271,6 @@
                     defaultDurationBtn.classList.add('active');
                 } else if (serviceType === 'sesion') {
                     document.getElementById('features-sesion').style.display = 'block';
-                } else if (serviceType === 'jornada') {
-                    document.getElementById('features-jornada').style.display = 'block';
                 }
 
                 updateModalUI();
@@ -357,7 +290,6 @@
             // --- Event Listeners ---
             cardSesion.addEventListener('click', () => openModal('sesion'));
             cardPlan.addEventListener('click', () => openModal('plan'));
-            cardJornada.addEventListener('click', () => openModal('jornada'));
             modalClose.addEventListener('click', closeModal);
             modal.addEventListener('click', (event) => {
                 if (event.target === modal) closeModal();
@@ -391,12 +323,6 @@
                     message += `*Duración:* ${meses} ${meses > 1 ? 'meses' : 'mes'}\n`;
                     message += `*Cantidad:* ${cantidad} fotos por mes\n`;
                     message += `*Precio:* ${precioMensual}`;
-
-                } else if (serviceType === 'jornada') {
-                    const precio = modalPrecio.textContent;
-                    message += `*Servicio:* Jornada de Trabajo\n`;
-                    message += `*Duración:* ${cantidad} ${cantidad > 1 ? 'horas' : 'hora'}\n`;
-                    message += `*Precio:* ${precio} (Pago único)`;
                 }
 
                 message += "\n\nQuedo a la espera de tu respuesta. ¡Gracias!";
@@ -410,10 +336,6 @@
 
 </body>
 </html>
-
-
-
-
 
 
 
